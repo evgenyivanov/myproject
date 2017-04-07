@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Рейтинг ресторанов</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="/static/gradient.css" rel ="stylesheet" media="screen">
+  <script>$(document).ready(
+function(){
+setTimeout(location.reload.bind(location),18000);
+}
+);
+</script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Рейтинг ресторанов</h2>
+  <p></p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+         <th>N</th>
+        <th>Ресторан</th>
+        <th>Рейтинг</th>
+        <th>План ср. чек</th>
+        <th>Факт ср. чек </th>
+
+      </tr>
+    </thead>
+    <tbody>
+       {%for list in L%}
+      <tr>
+      
+        {%for item in list%}
+
+        <td>{{item|safe}}</td>
+
+        {%endfor%}
+        </tr>
+
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

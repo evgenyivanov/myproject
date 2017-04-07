@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Рейтинг кассиров</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form class="form-group" method="POST" enctype="multipart/form-data" >{% csrf_token %}
+      <span style="color:red;">&nbsp;&nbsp;{{errors}}</span>
+      <div class="fieldWrapper">
+
+
+         <label for="id_subject">&nbsp;&nbsp;логин:</label>
+         &nbsp;&nbsp;{{ f.login }}
+     </div>
+
+
+      <div class="fieldWrapper">
+                <label for="id_subject">&nbsp;&nbsp;пароль:</label>
+         {{ f.password }}
+     </div>  <p>&nbsp;&nbsp;<button type="submit">OK</button></p>
+     </form>
+</body>
+</html>

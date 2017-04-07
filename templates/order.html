@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Чек № {{name}}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>$(document).ready(
+function(){
+
+
+}
+
+
+);
+</script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Чек № {{name}}</h2>
+  
+   <table class="table table-striped">
+    <thead>
+      <tr>
+         <th>N</th>
+        <th>Наименование</th>
+        <th>Код</th>
+        <th>Количество</th>
+        <th>Сумма</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+       {%for list in L%}
+      <tr {%if list.gaming %}class="danger"{%endif%}>
+        <td>{{forloop.counter}}</td>
+         <td>{{list.name}}</td>
+         <td>{{list.sifr}}</td>
+         <td>{{list.quant}}</td>
+         <td>{{list.paysum}}</td>
+        </tr>
+      {%endfor%}
+    </tbody>
+  </table>
+Итого: {{total}}
+</div>
+
+</body>
+</html>

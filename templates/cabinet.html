@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Личный кабинет</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h3>Личный кабинет</h3>
+<p>Здравствуйте, {{fullname}}!</p>
+<p>Текущая игра {{game_name}}</p>
+<p>{{game_description}}</p>
+<p>Ресторан: {{restaurant_name}}</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+         <th>Показатель</th>
+         <th>План</th>
+         <th>Факт</th>
+         </tr>
+    </thead>
+     <tbody>
+
+      <tr>
+        <td>Рейтинг</td>
+        <td>1/1000</td>
+        <td>{{reiting}}</td>
+       </tr>
+
+       <tr>
+        <td>Средний чек руб. </td>
+        <td>{{restaurant_summa}}</td>
+        <td>{{middle_check}}</td>
+       </tr>
+
+       <tr>
+        <td>Количество чеков </td>
+        <td>{{restaurant_count}}</td>
+        <td>{{count_checks}}</td>
+       </tr>
+
+     </tbody>
+     </table>
+
+<div class="well">
+
+{% if change and not passw_text %}
+<h4 class="text-danger">Пароли не совпадают</h4>
+{%endif%}
+
+{% if change and passw_text %}
+<h4 class="text-succes">Пароль успешно изменен</h4>
+{%endif%}
+
+{% if not change %}
+<h4 class="text-primary">Изменить пароль</h4>
+{% endif  %}
+<form method="POST" action="/" >{% csrf_token %}
+<table>
+{% for field in f %}
+<tr>
+<th>{{field.label}}</th>
+<td>
+   {{ field.errors}}
+   {{field}}
+</td>
+</tr>
+{% endfor %}
+</table>
+<p><button class="btn btn-success">Сохранить </button></p>
+</form>
+</div>
+
+
+<form method="POST" action="/" enctype="multipart/form-data">{% csrf_token %} 
+<h4 class="text-primary">Загрузить фото</h4>
+{% for field in img_f%}
+{{field}}
+{% endfor %}
+<br>
+<p><button class="btn btn-success">Загрузить</button></p>
+</form>
+<br>
+
+<form action="/logout">
+ <p><button class="glyphicon glyphicon-log-out btn-danger" type="submit" > Выход</button></p>
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Рейтинг кассиров</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/static/gradient.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>$(document).ready(
+function(){
+
+setTimeout(location.reload.bind(location),18000);
+}
+
+
+);
+</script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Рейтинг кассиров</h2>
+  <h3>{{name}}</h3>
+  <h4>Период игры с {{start}} по {{finish}}</h4>
+  <p class="alert">{{description}}</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+         <th>N</th>
+        <th></th>
+        <th>Фамилия, Имя</th>
+        <th>Рейтинг</th>
+        <th>Номер карты</th>
+        <th>Шифр</th>  
+        <th>Ресторан</th>
+        <th>Кол-во игр. блюд</th>
+        <th>Кол-во чеков</th>
+        <th>Факт ср. чек</th>
+        <th>План ср. чек</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+       {%for list in L%}
+      <tr>
+        
+        {%for item in list%}
+
+        <td>{{item|safe}}</td>
+
+        {%endfor%}
+        </tr>
+
+      {%endfor%}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
